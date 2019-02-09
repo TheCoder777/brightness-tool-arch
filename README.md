@@ -8,22 +8,22 @@ and it's even more helpfull, if your xbacklight command doesn't work properly.
 
 You can set the brightness of your screen by simply typing:
 
-´´´
+```sh
 $ setbrightness <value>
-´´´
+```
 Where *value* is your brightness level as number.
 
 
 You can also add an amount of levels to your brightness by typing:
 
-´´´
+```sh
 $ setbrightness +<value>
-´´´
+```
 or decrease the value:
 
-´´´
+```sh
 $ setbrightness -<value>
-´´´
+```
 
 ## Installation
 
