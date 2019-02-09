@@ -1,5 +1,5 @@
 #!/bin/bash
-if [ "$1" == 0 ]; then #if brightness is '0' the screen would be black!
+if [ "$1" -le 0 ]; then #if brightness is '0' the screen would be black!
 	echo "Brightness can not be zero!"
 	exit
 fi
