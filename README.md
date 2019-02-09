@@ -29,6 +29,7 @@ $ setbrightness -<value>
 
 The only thing you need to do is to add the "setbrightness.sh" file to your path 
 (meaning /usr/local/bin/, or /usr/bin/, or some other path on your $PATH variable)
+
 If you like, you can remove the ".sh" extension.
 
 If you've got any problems, let me know!
