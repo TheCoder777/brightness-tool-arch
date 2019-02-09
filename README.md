@@ -14,12 +14,12 @@ $ setbrightness <value>
 Where *value* is your brightness level as number.
 
 
-You can also add an amount of levels to your brightness by typing:
+You can also **add** an amount of levels to your brightness by typing:
 
 ```sh
 $ setbrightness +<value>
 ```
-or decrease the value:
+or **decrease** the value:
 
 ```sh
 $ setbrightness -<value>
