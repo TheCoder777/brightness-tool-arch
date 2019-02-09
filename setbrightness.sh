@@ -1,15 +1,41 @@
 #!/bin/bash
+if [ "$1" == 0 ]; then #if brightness is '0' the screen would be black!
+	echo "Brightness can not be zero!"
+	exit
+fi
 
 if [ -z $1 ]; then
-		echo $(cat /sys/class/backlight/intel_backlight/brightness)
-elif [ "$1" == *"+"* ]; then
-		old=$(cat /sys/class/backlight/intel_backlight/brightness)
-		add=$($1%"+")
+	echo -n "Brightness: "
+	echo $(cat /sys/class/backlight/intel_backlight/brightness)
+	exit
 
-sudo chmod 666 /sys/class/backlight/intel_backlight/brightness
-echo setting brightness to $1...
-sudo echo "$1" > /sys/class/backlight/intel_backlight/brightness
+elif [[ "$1" == "+"* ]]; then
+	operator="+"
+	old=$(cat /sys/class/backlight/intel_backlight/brightness)
+	add=${1//$operator/}
+	sum=$(($old + $add))
+	sudo chmod 666 /sys/class/backlight/intel_backlight/brightness
+	echo "changing brightness to: $sum"
+	sudo echo "$sum" > /sys/class/backlight/intel_backlight/brightness
+	exit
 
+elif [[ "$1" == "-"* ]]; then
+	operator="-"
+	old=$(cat /sys/class/backlight/intel_backlight/brightness)
+	add=${1//$operator/}
+	diff=$(($old - $add))	
+	sudo chmod 666 /sys/class/backlight/intel_backlight/brightness
+	echo "changing brightness to: $diff"
+	sudo echo "$diff" > /sys/class/backlight/intel_backlight/brightness
+	exit
+
+else	
+	sudo chmod 666 /sys/class/backlight/intel_backlight/brightness
+	echo setting brightness to $1...
+	sudo echo "$1" > /sys/class/backlight/intel_backlight/brightness
+	exit
+
+fi
 
 # LICENCE
 
